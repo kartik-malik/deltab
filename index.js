@@ -9,7 +9,7 @@ const cors =require("cors")
 const errorHandler = require("./controllers/error");
 const authRoutes   =require("./routes/auth")
 const port =process.env.PORT ||8080
-mongoose.connect("mongodb+srv://kartik:kartik1234@cluster0.e0tsg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://kartik:"+process.env.MONGO_PASS+"@cluster0.e0tsg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 // mongoose.connect('mongodb://localhost/deltax');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
