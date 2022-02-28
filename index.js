@@ -8,7 +8,8 @@ const employRouter =require("./routes/employee");
 const cors =require("cors")
 const errorHandler = require("./controllers/error");
 const authRoutes   =require("./routes/auth")
-mongoose.connect('mongodb://localhost/deltax');
+mongoose.connect("mongodb+srv://kartik:kartik1234@cluster0.e0tsg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+// mongoose.connect('mongodb://localhost/deltax');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors())

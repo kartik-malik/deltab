@@ -33,10 +33,13 @@ exports.deleteEmployee=async (req,res,next)=>{
 exports.createEmployees=async (req,res,next)=>{
     try {
         const {status,notes,company,name}=req.body;
-        const data=await employee.create({status,notes,company,name});
+        let data=await employee.create({status,notes,company,name});
+     data=  await employee.findById(data._id).populate("company").exec();
+    console.log(data)
         res.send(data);
     }
     catch(error){
+        console.log(error)
           next(error)
     }
 }
