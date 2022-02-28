@@ -13,8 +13,9 @@ exports.editEmployee=async (req,res,next)=>{
     try {
         const employId=req.params.eid
     const {status,notes,company,name}=req.body;
-    const updated=await employee.findOneAndUpdate({_id:employId},{status,notes,company,name});
-    res.send({message:"edited success"})
+    const updated=await employee.findOneAndUpdate({_id:employId},{status,notes,company,name},{new:true}).populate("company").exec();
+
+    res.send(updated)
     } catch (error) {
         next(error);
         
